@@ -56,7 +56,7 @@ namespace Ecommerce.Controllers
                 Name = category.Name
             });
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(typeof(CategoryDto), StatusCodes.Status201Created)]
         public async Task<IActionResult> PostCategory([FromBody] CategoryDto categoryDto)
@@ -93,7 +93,7 @@ namespace Ecommerce.Controllers
 
 
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, [FromBody] CategoryDto categoryDto)
         {
@@ -125,7 +125,7 @@ namespace Ecommerce.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

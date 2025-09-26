@@ -111,7 +111,7 @@ namespace Ecommerce.Controllers
         }
 
         [HttpGet("all")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllOrders()
         {
             var orders = await _context.Orders

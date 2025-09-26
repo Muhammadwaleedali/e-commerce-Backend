@@ -62,7 +62,7 @@ namespace Ecommerce.Controllers
             return product;
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<ProductDto>> PostProduct([FromForm] ProductDto productDto)
         {
@@ -108,7 +108,7 @@ namespace Ecommerce.Controllers
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, productDto);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, [FromForm] ProductDto productDto)
         {
@@ -148,7 +148,7 @@ namespace Ecommerce.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {

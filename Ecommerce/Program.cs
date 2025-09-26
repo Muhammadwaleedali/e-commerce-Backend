@@ -40,7 +40,13 @@ namespace Ecommerce
             });
 
             var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
-            builder.Services.AddAuthentication("Bearer")
+            builder.Services
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = "Bearer";
+                    options.DefaultChallengeScheme = "Bearer";
+                    options.DefaultScheme = "Bearer";
+                })
                 .AddJwtBearer("Bearer", options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
